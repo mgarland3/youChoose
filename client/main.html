@@ -1,0 +1,372 @@
+<!-- navigation templates -->
+
+<template name="mainNav">
+  <nav class="bar bar-tab">
+    <!-- <a class="tab-item home" href="/"> -->
+    <a class="tab-item home" id="todayNav">
+      <span class="icon icon-home"></span>
+      <span class="tab-label">Today</span>
+    </a>
+    <a class="tab-item" href="{{pathFor route='logs'}}" id="reflectNav">
+      <span class="icon icon-compose"></span>
+      <span class="tab-label">Reflect</span>
+    </a>
+    <a class="tab-item" href="{{pathFor route='review'}}" id="reviewNav">
+      <span class="icon icon-list"></span>
+      <span class="tab-label">Review</span>
+    </a>
+    <a class="tab-item" href="{{pathFor route='goals'}}" id="goalsNav">
+      <span class="icon icon-check"></span>
+      <span class="tab-label">Goals</span>
+    </a>
+    {{#if currentUser}}
+      <a class="tab-item logout" href="{{pathFor route='start'}}">
+        <span class="icon icon-more"></span>
+        <span class="tab-label">Log Out</span>
+      </a>
+    {{else}}
+      <a class="tab-item signup" href="{{pathFor route='register'}}">
+        <span class="icon icon-more"></span>
+        <span class="tab-label">Sign Up</span>
+      </a>
+    {{/if}}
+  </nav>
+</template>
+
+<!-- login/register templates -->
+
+<template name="start">
+  <h1>YouChoose</h1>
+  <p>sign in with facebook</p>
+  <a href="{{pathFor route='login'}}"><p>log in</p></a>
+  <a href="{{pathFor route='register'}}"><p>register</p></a>
+  <a href="{{pathFor route='mornPrompt'}}"><button class="btn btn-primary btn-block">go to morn prompt</button></a>
+</template>
+
+<template name="login">
+    <h2>Login</h2>
+    <form class="login">
+        <p>Email: <input type="email" name="email"></p>
+        <p>Password: <input type="password" name="password"></p>
+        <p><input type="submit" value="Login"></p>
+    </form>
+</template>
+
+<template name="register">
+  <h2>Register</h2>
+  <form class="register">
+      <p>Email: <input type="email" name="email"></p>
+      <p>Password: <input type="password" name="password"></p>
+      <p><input type="submit" value="Register"></p>
+  </form>
+</template>
+
+<!-- mornPrompt templates -->
+
+<template name="mornPrompt">
+  <header class="bar bar-nav">
+    <h1 class="title">Morning Prompt</h1>
+  </header>
+  <div class="container">
+    <form>
+<!--       <a href="{{pathFor route='emotion1'}}" id="emotion1"><button class="btn btn-primary btn-block">Habit 1</button></a>
+      <a href="{{pathFor route='emotion2'}}" id="emotion2"><button class="btn btn-primary btn-block">Habit 2</button></a>
+      <a href="{{pathFor route='emotion3'}}" id="emotion3"><button class="btn btn-primary btn-block">Habit 3</button></a>
+      <a href="{{pathFor route='emotion4'}}" id="emotion4"><button class="btn btn-primary btn-block">Habit 4</button></a>
+      <a href="{{pathFor route='emotion5'}}" id="emotion5"><button class="btn btn-primary btn-block">Habit 5</button></a>
+      <a href="{{pathFor route='emotion6'}}" id="emotion6"><button class="btn btn-primary btn-block">Habit 6</button></a> -->
+
+      <button class="btn btn-primary btn-block" id="emotion1">Habit 1</button>
+      <button class="btn btn-primary btn-block" id="emotion2">Habit 2</button>
+      <button class="btn btn-primary btn-block" id="emotion3">Habit 3</button>
+      <button class="btn btn-primary btn-block" id="emotion4">Habit 4</button>
+      <button class="btn btn-primary btn-block" id="emotion5">Habit 5</button>
+      <button class="btn btn-primary btn-block" id="emotion6">Habit 6</button>
+
+      <!-- <p><input type="submit" value="Submit"></p> -->
+    </form>  
+
+  </div>
+  {{> mainNav}}
+</template>
+
+<!-- emotions and emotion nav templates -->
+
+<template name="emotion1">
+  <header class="bar bar-nav">
+    <h1 class="title">Habit 1</h1>
+  </header>
+
+  <div class="bar bar-standard bar-header-secondary">
+    <a href="{{pathFor route='mornPrompt'}}">
+      <button class="btn btn-primary btn-block">Change Today's Selection</button>
+    </a>
+  </div>
+  <div class="logList">
+    {{#each log}}
+      {{> logItem}}
+    {{else}}
+      no logs for Habit 1 yet
+    {{/each}}
+  </div>
+  {{> mainNav}}
+</template>
+
+<template name="emotion2">
+  <header class="bar bar-nav">
+    <h1 class="title">Habit 2</h1>
+  </header>
+  <div class="bar bar-standard bar-header-secondary">
+    <a href="{{pathFor route='mornPrompt'}}">
+      <button class="btn btn-primary btn-block">Change Today's Selection</button>
+    </a>
+  </div>
+  <div class="logList">
+    {{#each log}}
+      {{> logItem}}
+    {{else}}
+      no logs for Habit 2 yet
+    {{/each}}
+  </div>
+  {{> mainNav}}
+</template>
+
+<template name="emotion3">
+  <header class="bar bar-nav">
+    <h1 class="title">Habit 3</h1>
+  </header>
+  <div class="bar bar-standard bar-header-secondary">
+    <a href="{{pathFor route='mornPrompt'}}">
+      <button class="btn btn-primary btn-block">Change Today's Selection</button>
+    </a>
+  </div>
+  <div class="logList">
+    {{#each log}}
+      {{> logItem}}
+    {{else}}
+      no logs for Habit 3 yet
+    {{/each}}
+  </div>
+  {{> mainNav}}
+</template>
+
+<template name="emotion4">
+  <header class="bar bar-nav">
+    <h1 class="title">Habit 4</h1>
+  </header>
+  <div class="bar bar-standard bar-header-secondary">
+    <a href="{{pathFor route='mornPrompt'}}">
+      <button class="btn btn-primary btn-block">Change Today's Selection</button>
+    </a>
+  </div>
+  <div class="logList">
+    {{#each log}}
+      {{> logItem}}
+    {{else}}
+      no logs for Habit 4 yet
+    {{/each}}
+  </div>
+  {{> mainNav}}
+</template>
+
+<template name="emotion5">
+  <header class="bar bar-nav">
+    <h1 class="title">Habit 5</h1>
+  </header>
+  <div class="bar bar-standard bar-header-secondary">
+    <a href="{{pathFor route='mornPrompt'}}">
+      <button class="btn btn-primary btn-block">Change Today's Selection</button>
+    </a>
+  </div>
+  <div class="logList">
+    {{#each log}}
+      {{> logItem}}
+    {{else}}
+      no logs for Habit 5 yet
+    {{/each}}
+  </div>
+  {{> mainNav}}
+</template>
+
+<template name="emotion6">
+  <header class="bar bar-nav">
+    <h1 class="title">Habit 6</h1>
+  </header>
+  <div class="bar bar-standard bar-header-secondary">
+    <a href="{{pathFor route='mornPrompt'}}">
+      <button class="btn btn-primary btn-block">Change Today's Selection</button>
+    </a>
+  </div>
+  <div class="logList">
+    {{#each log}}
+      {{> logItem}}
+    {{else}}
+      no logs for Habit 6 yet
+    {{/each}}
+  </div>
+  {{> mainNav}}
+</template>
+
+<!-- logging/reflecting templates -->
+
+<template name="logs">
+  {{> addLog}}
+  {{> mainNav}}
+</template>
+
+<template name="logItem">
+  <li class="table-view-cell">
+    <a class="navigate-right" href="/logs/{{_id}}">
+      {{createdAt}}
+    </a>
+  </li>
+</template>
+
+<template name="logPage">
+  <header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left" onclick="history.back(-1)" href="#"></a>
+    <a class="icon icon-trash pull-right delete-log"></a>
+    <h1 class="title">{{createdAt}}</h1>
+  </header>
+  <div class="logName">
+    <!-- <p>{{name}}</p> -->
+    <textarea rows="8" name="logItem">{{name}}</textarea>
+  </div>  
+</template>
+
+<template name="addLog">
+  <header class="bar bar-nav">
+    <h1 class="title">Evening log</h1>
+  </header>
+
+  <div class="container">
+    How do you feel about your goals based on what you did today?
+    <form>
+      <input type="button" name="emotion1" class="emotion1" value="emotion 1">
+      <input type="button" name="emotion2" class="emotion2" value="emotion 2">
+      <input type="button" name="emotion3" class="emotion3" value="emotion 3">
+      <input type="button" name="emotion4" class="emotion4" value="emotion 4">
+      <input type="button" name="emotion5" class="emotion5" value="emotion 5">
+      <input type="button" name="emotion6" class="emotion6" value="emotion 6">
+      <input type="button" value="negative opt. 1"> 
+      <input type="button" value="negative opt. 2"> 
+      <textarea rows="5" placeholder="What did you do today towards your goal?" name="logName"></textarea>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+</template>
+
+<!-- review templates -->
+
+<template name="review">
+  <header class="bar bar-nav">
+    <h1 class="title">Your Reflections</h1>
+  </header>
+
+  <div class="container">
+    Below are all of your reflections
+
+      {{#each log}}
+        {{> reviewItem}}
+      {{else}}
+        You haven't logged anything yet
+      {{/each}}  
+  </div>
+  {{> mainNav}}
+
+</template>
+
+<template name="reviewItem">
+    <li class="table-view-cell">
+      <a class="navigate-right" href="/logs/{{_id}}">
+        {{createdAt}}
+        {{emotion}}
+      </a>
+    </li>
+</template>
+
+<!-- goal templates -->
+
+<template name="goals">
+  {{> addGoal}}
+    {{#each goal}}
+      {{> goalItem}}
+    {{/each}}
+  {{> mainNav}}
+</template>
+
+<template name="goalItem">
+  <li class="{{checked}} table-view-cell">
+    <input type="checkbox" {{checked}}>
+    <input type="text" value="{{name}}" name="goalItem">
+    <button class="btn btn-primary"><a href="#" class="delete-goal">Remove Goal</a></button>
+  </li>
+</template>
+
+<template name="addGoal">
+  
+  <header class="bar bar-nav">
+    <h1 class="title">My Goals</h1>
+  </header>
+
+  <div class="container">
+    <form>
+      <input type="text" placeholder="Add a new Goal" name="goalName">
+      <input type="submit" value="Add Goal">
+    </form>
+  </div>
+</template>
+
+<!-- logout templates -->
+
+<template name="logout">
+  <h1>logout</h1>
+  {{> mainNav}}
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

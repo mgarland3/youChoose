@@ -1,0 +1,55 @@
+[name=goalItem]:focus{
+    background-color: #f9f9f9;
+}
+
+.checked{
+    background-color:#f0f0f0;
+    color:#666;
+}
+
+.checked [name=goalItem]{
+    text-decoration: line-through;
+}
+
+.checked [name=goalItem],
+.checked [name=goalItem]:hover,
+.checked [name=goalItem]:focus{
+    background-color:#f0f0f0;
+}
+
+input[type="text"] {
+	border: none;
+	margin-bottom: 0px;
+	width: 80%;
+}
+
+li {
+	list-style: none;
+}
+
+h1 {
+	text-align: center;
+}
+.logList{
+	margin-top: 90px;
+}
+.logName {
+	margin-top: 44px;
+	padding: 10px 10px;
+}
+a.icon.icon-edit.pull-right::before {
+	margin-right: 18px;
+}
+.container {
+	margin-top: 44px;
+}
+
+input.error{
+    background-color:rgb(255, 231, 231);
+}
+
+
+
+
+
+
